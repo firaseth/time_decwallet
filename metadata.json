@@ -1,0 +1,7 @@
+{
+  "name": "Time Wallet",
+  "description": "A secure, decentralized Ethereum-based wallet featuring AI-powered security auditing, cross-chain bridging, and asset management.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
