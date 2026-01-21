@@ -2,7 +2,16 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { SecurityScanResult } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Safety check for process.env in browser environments to prevent build crashes
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY || '';
+  } catch (e) {
+    return '';
+  }
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 export async function scanUrlForSecurity(url: string): Promise<SecurityScanResult> {
   try {
